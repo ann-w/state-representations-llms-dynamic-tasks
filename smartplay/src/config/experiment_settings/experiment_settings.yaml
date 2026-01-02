@@ -1,0 +1,41 @@
+# =============================================================================
+# EXPERIMENT SETTINGS CONFIGURATION
+# =============================================================================
+# This file contains all configurable parameters for reasoning-with-llms experiments
+
+# =============================================================================
+# MODEL CONFIGURATION
+# =============================================================================
+model_name: Qwen/Qwen3-VL-32B-Instruct # llava:7b #"o3" #llama3.1
+api_type: "local_huggingface"  # Options: huggingface, local_huggingface, openai, ollama, deepseek
+
+# =============================================================================
+# ENVIRONMENT CONFIGURATION
+# =============================================================================
+# Current active environment
+env_names: "Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,MessengerL1,MessengerL1,MessengerL1,MessengerL1,MessengerL1,MessengerL1,MessengerL1,MessengerL1,MessengerL1,MessengerL1"
+# env_names: "MessengerL1NaturalLanguage,MessengerL1NaturalLanguage,MessengerL1NaturalLanguage,MessengerL1NaturalLanguage,MessengerL1NaturalLanguage"
+# Toggle inclusion of illustrative one-shot examples in environment manuals
+one_shot_example: False
+#  env_steps: 5                 # Number of steps per environment episode
+# env_iter: 1               # Number of iterations per environment step
+
+# =============================================================================
+# AGENT CONFIGURATION
+# =============================================================================
+# Core agent features
+use_rolling_summary: False        # Enable rolling context summarization
+use_oracle_summary: True        # Use ground-truth oracle summary instead of LLM-generated summary (ablation)
+use_visualization_of_thought: False  # Enable visualization-of-thought ASCII map prompting
+
+
+# =============================================================================
+# OTHER CONFIGURATION
+# =============================================================================
+count_token_usage: False         # Count token usage in LLM queries
+
+# =============================================================================
+# VISION CONFIGURATION
+# =============================================================================
+vision: False                  # If true (and using Ollama), enable vision-language querying (e.g., llava) with per-step image input when available.
+vision_log_frames: False       # If true, persist all per-step rendered frames & GIFs. If false, keep only the most recent frame (older frames deleted) to reduce disk usage.

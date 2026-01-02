@@ -1,0 +1,20 @@
+Your role is to compress the recent trajectory into a concise summary that an agent can reuse next step.
+
+Game Description:
+{manual}
+
+Recent history (most recent last):
+{recent_history}
+
+Previous rolling summary:
+{previous_summary}
+
+Task:
+- Produce a new summary ≤25 tokens.
+- Mention agent location, key items/inventory, goals/hazards, and momentum toward objectives.
+- Do not restate every step; only the most salient facts.
+- If the history is empty, return "Start of game".
+- Do not only repeat an action, but summarize what actions led to what outcomes.
+
+Respond strictly in this exact format. The summary should be one sentence only, but you can use a comma.  
+Summary: <concise summary here>

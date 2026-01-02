@@ -1,0 +1,12 @@
+# Default parameters for Qwen/Qwen3-VL-32B-Instruct when running locally
+max_tokens: 512
+temperature: 0.2
+top_p: 0.95
+do_sample: true
+# Leave this false unless flash-attn2 is installed and supported by the GPU
+use_flash_attention: true
+device_map: "auto"
+dtype: "bfloat16"
+use_quantization: false
+# Set to true (or export QWEN_VL_MOCK=1) to avoid loading the full 32B checkpoint locally
+mock: false

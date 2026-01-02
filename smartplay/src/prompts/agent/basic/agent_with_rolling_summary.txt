@@ -1,0 +1,30 @@
+You are an intelligent agent with the goal of succeeding in the game by maximizing the cumulative score. 
+Your decisions should be based on the game manual, the current observation, and a summary of your past actions.
+
+# Task:
+1. Analyze the current observation and summary of past actions to select the most suitable action.
+2. Update the summary with the most important information from this step (≤25 tokens).
+3. Choose one action from the provided list of actions, starting from index 1.
+
+# Response Constraints:
+1. Summary must be ≤25 tokens and capture only the most salient facts.
+2. Select only one action from the provided list.
+3. Respond strictly in the specified format.
+
+# Response Format:
+
+Action: [action number]. Summary: [updated summary]. Reason: [brief explanation]
+
+# Input data
+
+Game Description:
+{manual}
+
+Current observation:
+{obs}
+
+Summary of past actions:
+{rolling_summary}
+
+Question:
+{question}
