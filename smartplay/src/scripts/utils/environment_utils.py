@@ -277,8 +277,8 @@ def get_valid_actions_for_env(environment: str) -> dict:
         "MessengerL1Shaped",
         "MessengerL1NoRand",
         "MessengerL1ShapedNoRand",
-        "MessengerL1Matrix",
-        "MessengerL1NaturalLanguage",
+        "MessengerL1Coordinates",
+        "MessengerL1NaturalLanguagePos",
         "MessengerL1Symbolic",
     ]
     for variant in messenger_variants:

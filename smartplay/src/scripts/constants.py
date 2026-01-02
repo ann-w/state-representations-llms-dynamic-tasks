@@ -23,7 +23,7 @@ ENV_TRAJECTORY_SAMPLES = {
     "MessengerL1NoRand": 10,
     "MessengerL1ShapedNoRand": 10,
     # New messenger representations
-    "MessengerL1Matrix": 10,
-    "MessengerL1NaturalLanguage": 10,
+    "MessengerL1Coordinates": 10,
+    "MessengerL1NaturalLanguagePos": 10,
     "MessengerL1Symbolic": 10,
 }

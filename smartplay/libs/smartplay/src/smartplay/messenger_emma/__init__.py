@@ -14,9 +14,9 @@ environments = [
         {"lvl": 1, "use_shaping": True, "use_text_substitution": False},
     ],
     # add new messenger representations
-    ["MessengerL1Matrix", "v0", {"lvl": 1, "representation": "Matrix"}],
+    ["MessengerL1Coordinates", "v0", {"lvl": 1, "representation": "Matrix"}],
     [
-        "MessengerL1NaturalLanguage",
+        "MessengerL1NaturalLanguagePos",
         "v0",
         {"lvl": 1, "representation": "NaturalLanguage"},
     ],

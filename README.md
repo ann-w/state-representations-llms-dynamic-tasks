@@ -1,10 +1,13 @@
 # State Representations for LLMs in Dynamic Reasoning Tasks
 
-This repository contains the code for the paper **"State Representations for Large Language Models in Dynamic Reasoning Tasks"**.
+This repository contains the code for the paper **State Representations for Dynamic Reasoning Tasks in Large
+Language Models**.
 
 ## Abstract
 
-As large language models move from static reasoning tasks toward dynamic environments, their success depends on the ability to navigate and respond to an environment that changes as they interact with it. An underexplored factor in these settings is the inference-time state representation. Holding model parameters fixed, we systematically vary state granularity (long form versus summary), structure (natural language versus symbolic), and spatial grounding (text-only versus images or textual map encodings) across sequential decision-making benchmarks.
+As large language models (LLMs) move from static reasoning tasks toward dynamic environments, their success depends on the ability to navigate and respond to an environment that changes as they interact at inference time. An underexplored factor in these settings is the representation of the state. Holding model parameters fixed, we systematically vary three key aspects: (1) state granularity (long form versus summary), (2) structure (natural language versus symbolic), and (3) spatial grounding (text-only versus images or textual map encodings) across sequential decision-making benchmarks. We find that trajectory
+summarisation improves performance by reducing noise and stabilising long-horizon reasoning. Second, natural language representations are more effective than structured state
+representations in models with code or structured output priors, such as JSON schemas. Third, while image-inputs show some benefit, text-based spatial encodings prove most effective. This advantage stems not from the spatial information itself, but from the act of construction, which compels the model to perform the spatial reasoning that static input does not elicit. Overall, we demonstrate that design choices for representing state are a decisive factor in performance, distinct from the availability of information itself. We note, however, that even with improved representations, current LLMs and VLMs remain brittle over long horizons, particularly when they must synthesise information to manage multiple subtasks to reach a goal.
 
 ## Repository Structure
 
@@ -12,29 +15,20 @@ This repository contains two separate benchmark suites, each with its own enviro
 
 ```
 state-representations-llms-dynamic-tasks/
-├── smartplay/           # SmartPlay benchmark (Hanoi, Messenger, Bandits)
-├── BALROG/              # BALROG benchmark (BabyAI, NetHack, TextWorld)
-├── scripts/             # Installation helper scripts
+├── smartplay/           # SmartPlay benchmark (Hanoi, Messenger)
+├── BALROG/              # BALROG benchmark (BabyAI)
+├── scripts/             
 ├── Makefile             # Easy setup commands
 └── README.md
 ```
 
-### Why Two Separate Benchmarks?
-
 The benchmarks have **incompatible dependencies** (different gym versions, different Python requirements), so they must be installed in separate conda environments. This is intentional and ensures reproducibility.
-
-| Benchmark | Environments | Focus |
-|-----------|--------------|-------|
-| **SmartPlay** | Tower of Hanoi, Messenger, Multi-armed Bandits | Classical planning, state representation variations |
-| **BALROG** | BabyAI, NetHack, TextWorld | Vision-language, long-horizon reasoning |
 
 ## Quick Start
 
 ### Prerequisites
 
-- [Conda](https://docs.conda.io/en/latest/miniconda.html) (Miniconda or Anaconda)
-- Git
-- macOS/Linux (Windows via WSL)
+- [Conda](https://docs.conda.io/en/latest/miniconda.html) 
 
 ### Option 1: Using Make (Recommended)
 
@@ -112,7 +106,7 @@ python eval.py \
 
 ## State Representation Options
 
-### Trajectory Representation
+### Trajectory Summary Representation
 
 | Option | Description | Config |
 |--------|-------------|--------|
@@ -122,19 +116,32 @@ python eval.py \
 
 ### State Structure
 
-| Option | Description |
-|--------|-------------|
-| **Natural Language** | Human-readable descriptions |
-| **Symbolic/Matrix** | Structured representations (JSON, matrices) |
+State structure is set through the environment name in `env_names`.
+
+**Hanoi:**
+| Representation | Environment Name |
+|----------------|------------------|
+| Natural Language | `Hanoi3DiskNaturalLanguage` |
+| Tagged List | `Hanoi3Disk` (default) |
+| Matrix | `Hanoi3DiskMatrix` |
+| Dict List | `Hanoi3DiskDictList` |
+
+**Messenger:**
+| Representation | Environment Name |
+|----------------|------------------|
+| Natural Language | `MessengerL1` (default) |
+| Natural Language + Position | `MessengerL1NaturalLanguagePos` |
+| Coordinates | `MessengerL1Coordinates` |
+| Symbolic | `MessengerL1Symbolic` |
 
 ### Spatial Grounding
 
-| Option | Description |
-|--------|-------------|
-| **Text-only** | No spatial information |
-| **Vision** | Image observations |
-| **Visualization-of-Thought** | LLM constructs ASCII maps |
-| **Oracle VoT** | Ground-truth ASCII maps (ablation) | 
+| Option | Description | Config |
+|--------|-------------|--------|
+| **Text-only** | No spatial information | `use_vision: False`, `use_visualization_of_thought: False` |
+| **Vision** | Image observations | `use_vision: True` |
+| **Visualization-of-Thought** | LLM constructs ASCII maps | `use_visualization_of_thought: True` |
+| **Oracle VoT** | Ground-truth ASCII maps (ablation) | `use_oracle_vot: True` | 
 
 ## Supported Models
 

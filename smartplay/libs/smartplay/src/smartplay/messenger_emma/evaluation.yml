@@ -45,12 +45,12 @@ recorded settings:
     steps: 10
     human score: 1
     min score: -1
-  MessengerL1Matrix: # new representation
+  MessengerL1Coordinates: # new representation
     iter: 20
     steps: 10
     human score: 1
     min score: -1
-  MessengerL1NaturalLanguage: # new representation
+  MessengerL1NaturalLanguagePos: # new representation
     iter: 20
     steps: 10
     human score: 1

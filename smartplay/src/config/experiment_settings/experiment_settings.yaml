@@ -14,7 +14,7 @@ api_type: "local_huggingface"  # Options: huggingface, local_huggingface, openai
 # =============================================================================
 # Current active environment
 env_names: "Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,Hanoi3Disk,MessengerL1,MessengerL1,MessengerL1,MessengerL1,MessengerL1,MessengerL1,MessengerL1,MessengerL1,MessengerL1,MessengerL1"
-# env_names: "MessengerL1NaturalLanguage,MessengerL1NaturalLanguage,MessengerL1NaturalLanguage,MessengerL1NaturalLanguage,MessengerL1NaturalLanguage"
+# env_names: "MessengerL1NaturalLanguagePos,MessengerL1NaturalLanguagePos,MessengerL1NaturalLanguagePos,MessengerL1NaturalLanguagePos,MessengerL1NaturalLanguagePos"
 # Toggle inclusion of illustrative one-shot examples in environment manuals
 one_shot_example: False
 #  env_steps: 5                 # Number of steps per environment episode

@@ -25,8 +25,8 @@ benchmark_games_v0 = [
     "Hanoi3DiskNaturalLanguage",
     "Hanoi3DiskLuaFunction",
     # Add new messenger representations
-    "MessengerL1Matrix",
-    "MessengerL1NaturalLanguage",
+    "MessengerL1Coordinates",
+    "MessengerL1NaturalLanguagePos",
     "MessengerL1Symbolic",
 ]
 

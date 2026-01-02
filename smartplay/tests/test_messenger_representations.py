@@ -8,8 +8,8 @@ def test_messenger_representations():
     # List of representations to test
     representations = [
         "MessengerL1",  # Default
-        "MessengerL1Matrix",
-        "MessengerL1NaturalLanguage",
+        "MessengerL1Coordinates",
+        "MessengerL1NaturalLanguagePos",
         "MessengerL1Symbolic",
     ]
 
@@ -58,8 +58,8 @@ def test_representation_differences():
 
     # Create environments with different representations
     default_env = gym.make("smartplay:MessengerL1-v0")
-    matrix_env = gym.make("smartplay:MessengerL1Matrix-v0")
-    natural_env = gym.make("smartplay:MessengerL1NaturalLanguage-v0")
+    matrix_env = gym.make("smartplay:MessengerL1Coordinates-v0")
+    natural_env = gym.make("smartplay:MessengerL1NaturalLanguagePos-v0")
     symbolic_env = gym.make("smartplay:MessengerL1Symbolic-v0")
 
     # Reset all environments with same seed for consistency
@@ -108,7 +108,7 @@ def test_representation_differences():
     symbolic_env.close()
 
 
-def test_specific_representation(representation="MessengerL1Matrix"):
+def test_specific_representation(representation="MessengerL1Coordinates"):
     """Test a specific representation in detail"""
 
     print(f"\nDetailed Test: {representation}")
@@ -159,6 +159,6 @@ if __name__ == "__main__":
     # Run all tests
     test_messenger_representations()
     test_representation_differences()
-    test_specific_representation("MessengerL1Matrix")
-    test_specific_representation("MessengerL1NaturalLanguage")
+    test_specific_representation("MessengerL1Coordinates")
+    test_specific_representation("MessengerL1NaturalLanguagePos")
     test_specific_representation("MessengerL1Symbolic")
