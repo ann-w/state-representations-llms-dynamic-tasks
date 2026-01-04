@@ -1,4 +1,4 @@
-# State Representations for LLMs in Dynamic Reasoning Tasks
+# State Representations for Dynamic Reasoning Tasks in Large Language Models
 
 This repository contains the code for the paper **State Representations for Dynamic Reasoning Tasks in Large Language Models**.
 
