@@ -1,6 +1,6 @@
-# State Representations for Dynamic Reasoning Tasks in Large Language Models
+# State Design Matters: How Representations Shape Dynamic Reasoning in Large Language Models
 
-This repository contains the code for the paper **State Representations for Dynamic Reasoning Tasks in Large Language Models**.
+This repository contains the code for the paper **State Design Matters: How Representations Shape Dynamic Reasoning in Large Language Models**.
 
 ## Abstract
 
